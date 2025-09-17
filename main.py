@@ -23,7 +23,7 @@ def main():
     gl.auth()
 
     group = gl.groups.get(group_name)
-    for proj in tqdm(group.projects.list(iterator=True), desc="delete"):
+    for proj in tqdm(group.projects.list(get_all=True), desc="delete"):
         if not proj.path.startswith(f"{generator_fingerprint}-"):
             continue
 
